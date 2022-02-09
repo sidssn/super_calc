@@ -53,6 +53,11 @@ jobs:
         with:
           name: python-app
           path: .
+      
+      - name: checking file contents
+        run: |
+          ls -al
+        
           
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
