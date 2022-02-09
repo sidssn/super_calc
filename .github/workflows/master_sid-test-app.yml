@@ -39,6 +39,9 @@ jobs:
           path: |
             . 
             !venv/
+            !calc.html
+            !azure-pipelines.yaml
+            !trigger.txt
 
   deploy:
     runs-on: ubuntu-latest
