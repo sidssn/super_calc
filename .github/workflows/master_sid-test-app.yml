@@ -7,7 +7,7 @@ name: Build and deploy Python app to Azure Web App - sid-test-app
 on:
   push:
     branches:
-      - master
+      - master1 #so that I can run via devops pipeline later
   workflow_dispatch:
 
 jobs:
