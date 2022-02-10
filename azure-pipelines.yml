@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 variables:
-  SUB_ID: $(sub_id)
+  GLOBAL_SUB_ID: $(sub_id)
 
 trigger:
 - master
@@ -33,7 +33,7 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: $(SUB_ID)
+    azureSubscription: $(GLOBAL_SUB_ID)
     appType: 'webAppLinux'
     WebAppName: 'sid-test-app'
     packageForLinux: '$(System.DefaultWorkingDirectory)/code.zip'
