@@ -3,6 +3,9 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+variables:
+  SUB_ID: $(sub_id)
+
 trigger:
 - master
 
@@ -30,7 +33,7 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: 'Azure subscription 1(de46afed-d1b8-4bd8-a8ad-e0f0b1235943)'
+    azureSubscription: $(SUB_ID)
     appType: 'webAppLinux'
     WebAppName: 'sid-test-app'
     packageForLinux: '$(System.DefaultWorkingDirectory)/code.zip'
