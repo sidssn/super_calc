@@ -3,8 +3,8 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-variables:
-  GLOBAL_SUB_ID: $(sub_id)
+# variables:
+#   GLOBAL_SUB_ID: $(sub_id)
 
 trigger:
 - master
@@ -33,7 +33,7 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: $(GLOBAL_SUB_ID)
+    azureSubscription: $(sub_id)
     appType: 'webAppLinux'
     WebAppName: 'sid-test-app'
     packageForLinux: '$(System.DefaultWorkingDirectory)/code.zip'
