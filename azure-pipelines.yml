@@ -27,8 +27,8 @@ steps:
     script: |
       # Write your commands here
       echo 'Hello world'
-      zip -r code.zip app.py requirements.txt
-      cp code.zip $(System.DefaultWorkingDirectory)/code.zip
+      zip -r test-code.zip app.py requirements.txt
+      cp test-code.zip $(System.DefaultWorkingDirectory)/code.zip
 
 - task: AzureRmWebAppDeployment@4
   inputs:
