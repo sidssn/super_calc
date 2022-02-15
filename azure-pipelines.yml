@@ -33,7 +33,7 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: $(SUBS_ID)
+    azureSubscription: $(subs_id)
     appType: 'webAppLinux'
     WebAppName: 'sid-test-app'
     packageForLinux: '$(System.DefaultWorkingDirectory)/code.zip'
