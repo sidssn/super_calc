@@ -6,8 +6,12 @@
 # variables:
 #   GLOBAL_SUB_ID: $(sub_id)
 
-trigger:
-- master
+# trigger:
+# - master
+pr:
+  branches:
+    include:
+      - 'feature*'
 
 pool:
   vmImage: ubuntu-latest
