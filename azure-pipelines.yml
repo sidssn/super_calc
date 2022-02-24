@@ -52,7 +52,7 @@ steps:
       echo "Bash var: ${TEST}"
       echo 'Checking build status'
       if [ "$(Agent.JobStatus)" = "Succeeded"  ]; then
-        echo "Build Succeeded"
+        echo "Build Succeeded by checking status on devops defined var"
       else
         echo "Build failed"
       fi
