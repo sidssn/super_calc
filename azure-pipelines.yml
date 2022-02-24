@@ -13,11 +13,11 @@ pr:
     include:
       - 'feature*'
 
-pool:
-  vmImage: ubuntu-latest
-
 variables:
   SUBS_ID: $(subs_id)
+  
+pool:
+  vmImage: ubuntu-latest
 
 steps:
 - script: echo Hello, world!
@@ -53,9 +53,12 @@ steps:
       echo This is bash variable that I want to define to see how I can use here because devops defined vars need round brackets it seems
       TEST=hahahaha
       echo "Bash var: ${TEST}"
+      echo "Checking if secret value for subs id shows: ${SUBS_ID}"
       echo 'Checking build status'
       if [ "$(Agent.JobStatus)" = "Succeeded"  ]; then
         echo "Build Succeeded by checking status on devops defined var"
       else
         echo "Build failed"
       fi
+  env:
+    SUBS_ID: $(subs_id)   
