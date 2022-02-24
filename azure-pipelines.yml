@@ -37,11 +37,13 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: $(subs_id)
+    azureSubscription: $SUBS_ID
     appType: 'webAppLinux'
     WebAppName: 'sid-test-app'
     packageForLinux: '$(System.DefaultWorkingDirectory)/code.zip'
     RuntimeStack: 'PYTHON|3.8'
+  env:
+    SUBS_ID: $(subs_id)  
 
 - task: Bash@3
   inputs:
