@@ -16,9 +16,9 @@ trigger:
 pr:
   branches:
     include:
-    - main
-    exclude:
     - master
+    exclude:
+    - main
 
 variables:
   SUBSCRIPTION_ID: $(subs_id)
