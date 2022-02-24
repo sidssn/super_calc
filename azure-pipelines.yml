@@ -14,7 +14,7 @@ pr:
       - 'feature*'
 
 variables:
-  SUBS_ID: $(subs_id)
+  SUBSCRIPTION_ID: $(subs_id)
   
 pool:
   vmImage: ubuntu-latest
@@ -40,7 +40,7 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: $(SUBS_ID)
+    azureSubscription: $(SUBSCRIPTION_ID)
     appType: 'webAppLinux'
     WebAppName: 'sid-test-app'
     packageForLinux: '$(System.DefaultWorkingDirectory)/code.zip'
@@ -53,7 +53,7 @@ steps:
       echo This is bash variable that I want to define to see how I can use here because devops defined vars need round brackets it seems
       TEST=hahahaha
       echo "Bash var: ${TEST}"
-      echo "Checking if secret value for subs id shows: ${SUBS_ID}"
+      echo "Checking if secret value for subs id shows: ${SUBSC_ID}"
       echo 'Checking build status'
       if [ "$(Agent.JobStatus)" = "Succeeded"  ]; then
         echo "Build Succeeded by checking status on devops defined var"
@@ -61,4 +61,4 @@ steps:
         echo "Build failed"
       fi
   env:
-    SUBS_ID: $(subs_id)   
+    SUBSC_ID: $(subs_id)   
