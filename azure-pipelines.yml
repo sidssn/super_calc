@@ -11,7 +11,9 @@
 pr:
   branches:
     include:
-    - 'feature*'
+    - main
+    exclude:
+    - master
 
 variables:
   SUBSCRIPTION_ID: $(subs_id)
