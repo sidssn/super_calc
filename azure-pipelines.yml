@@ -48,7 +48,7 @@ steps:
     targetType: 'inline'
     script: |
       echo 'Checking build status'
-      if [ "${Agent.JobStatus}" = "Succeeded"  ]; then
+      if [ "$(Agent.JobStatus)" = "Succeeded"  ]; then
         echo "Build Succeeded"
       else
         echo "Build failed"
