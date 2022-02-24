@@ -16,6 +16,9 @@ pr:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  SUBS_ID: $(subs_id)
+
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
@@ -42,8 +45,6 @@ steps:
     WebAppName: 'sid-test-app'
     packageForLinux: '$(System.DefaultWorkingDirectory)/code.zip'
     RuntimeStack: 'PYTHON|3.8'
-  env:
-    SUBS_ID: $(subs_id)  
 
 - task: Bash@3
   inputs:
