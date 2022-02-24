@@ -47,6 +47,9 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
+      echo This is bash variable that I want to define to see how I can use here because devops defined vars need round brackets it seems
+      TEST=hahahaha
+      echo "Bash var: ${TEST}"
       echo 'Checking build status'
       if [ "$(Agent.JobStatus)" = "Succeeded"  ]; then
         echo "Build Succeeded"
