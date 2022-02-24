@@ -20,7 +20,9 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
+- script: |
+    echo Hello, world!
+    echo $(SUBSCRIPTION_ID)
   displayName: 'Run a one-line script'
 
 - script: |
@@ -61,4 +63,4 @@ steps:
         echo "Build failed"
       fi
   env:
-    SUBSC_ID: $(subs_id)   
+    SUBSC_ID: $(subs_id)   #Recommended
