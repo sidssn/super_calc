@@ -14,7 +14,7 @@ pr:
       - 'feature*'
 
 variables:
-  SUBSCRIPTION_ID: $(sub_id)
+  SUBSCRIPTION_ID: $(subs_id)
   
 pool:
   vmImage: ubuntu-latest
@@ -42,7 +42,7 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: $(SUBSCRIPTION_ID)
+    azureSubscription: $(sub_id)
     appType: 'webAppLinux'
     WebAppName: 'sid-test-app'
     packageForLinux: '$(System.DefaultWorkingDirectory)/code.zip'
