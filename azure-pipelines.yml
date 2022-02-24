@@ -22,7 +22,7 @@ pool:
 steps:
 - script: |
     echo Hello, world!
-    echo ${SUBSCRIPTION_ID}
+    echo $SUBS_ID
   displayName: 'Run a one-line script'
 
 - script: |
@@ -42,7 +42,7 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: $(sub_id)
+    azureSubscription: $(SUBSCRIPTION_ID)
     appType: 'webAppLinux'
     WebAppName: 'sid-test-app'
     packageForLinux: '$(System.DefaultWorkingDirectory)/code.zip'
@@ -57,7 +57,7 @@ steps:
       echo "Bash var: ${TEST}"
       echo "Checking if secret value for subs id shows: ${SUBSC_ID}"
       echo 'Checking build status'
-      if [ "$(Agent.JobStatus)" = "Succeeded"  ]; then
+      if [ "$Agent.JobStatus" = "Succeeded"  ]; then
         echo "Build Succeeded by checking status on devops defined var"
       else
         echo "Build failed"
