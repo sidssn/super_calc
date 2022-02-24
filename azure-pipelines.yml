@@ -11,7 +11,7 @@
 pr:
   branches:
     include:
-      - 'feature*'
+    - 'feature*'
 
 variables:
   SUBSCRIPTION_ID: $(subs_id)
@@ -54,7 +54,7 @@ steps:
     script: |
       echo This is bash variable that I want to define to see how I can use here because devops defined vars need round brackets it seems
       TEST=hahahaha
-      echo "Bash var: ${TEST}"
+      echo "Bash var: $TEST"
       echo "Checking if secret value for subs id shows: ${SUBSC_ID}"
       echo 'Checking build status'
       if [ "$Agent.JobStatus" = "Succeeded"  ]; then
