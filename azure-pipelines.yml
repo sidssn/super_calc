@@ -6,10 +6,19 @@
 # variables:
 #   GLOBAL_SUB_ID: $(sub_id)
 
-# trigger:
-# - master
+trigger:
+  branches:
+    include:
+    - main
+    exclude:
+    - master
+
 pr:
-- main
+  branches:
+    include:
+    - main
+    exclude:
+    - master
 
 variables:
   SUBSCRIPTION_ID: $(subs_id)
