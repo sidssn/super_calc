@@ -9,11 +9,7 @@
 # trigger:
 # - master
 pr:
-  branches:
-    include:
-    - main
-    exclude:
-    - master
+- main
 
 variables:
   SUBSCRIPTION_ID: $(subs_id)
